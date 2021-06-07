@@ -1,0 +1,5 @@
+//KQL query to be used with Azure Resource Graph Explorer to locate Internet connected IPs
+
+Resources
+| where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
+| project properties.ipAddress, name, location, resourceGroup, subscriptionId
